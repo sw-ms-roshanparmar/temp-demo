@@ -294,6 +294,13 @@ def getanswer():
     })
 
 
+@app.route('/hi')
+def hi():
+    
+    try:
+        return 'Hi -------- World!'
+    except Exception as error:
+        return str(error)
 # In[ ]:
 
 

@@ -26,12 +26,6 @@ from math import sqrt
 
 # In[ ]:
 
-cwd = os.getcwd()
-print(cwd)
-file = open('path.txt',"a")
-file.write(cwd)
-file.close()
-
 def convert_pdf(path, format='text', codec='utf-8', password=''):
     rsrcmgr = PDFResourceManager()
     retstr = BytesIO()

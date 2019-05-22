@@ -141,11 +141,12 @@ for foldername,subfolders,files in os.walk(r"./bookmark/"):
 
         df['file_name'] = final_fName
         frames.append(df)
-print(frames)        
+#print(frames)        
 dtls = pd.concat(frames)
 dtls.loc[:, "title"] = dtls.raw_title.str.replace("\n", " ").str.strip().str.lower()
 outphs = dtls.raw_title.tolist()
 dtls = dtls.reset_index(drop=True)
+print(dtls.head())
 
 
 # In[ ]:

@@ -127,7 +127,7 @@ for foldername,subfolders,files in os.walk(r"./bookmark/"):
         # map page ids to page numbers
         pg_id_num_map = _setup_page_id_to_num(p)
         o = p.getOutlines()
-        print(o)
+#         print(o)
         
         #
         page = []
@@ -141,7 +141,7 @@ for foldername,subfolders,files in os.walk(r"./bookmark/"):
 
         df['file_name'] = final_fName
         frames.append(df)
-        
+print(frames)        
 dtls = pd.concat(frames)
 dtls.loc[:, "title"] = dtls.raw_title.str.replace("\n", " ").str.strip().str.lower()
 outphs = dtls.raw_title.tolist()

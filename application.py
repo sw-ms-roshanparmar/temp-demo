@@ -160,9 +160,6 @@ for foldername,subfolders,files in os.walk(r"./bookmark/"):
     for file in files:
         path = os.path.join(foldername,file)
 		print(path)
-		#file1 = open('path.txt',"a")
-		#file1.write(path)
-		#file1.close()
         r = convert_pdf(path, "xml")
         fName = path.split('/')[-1]
         final_fName = fName.split('.')[0]

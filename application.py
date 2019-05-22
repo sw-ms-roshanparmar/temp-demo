@@ -288,8 +288,9 @@ app = Flask("avnet")
 @app.route("/info_retrieval", methods=["POST"])
 def getanswer():
     data = request.get_json(force=True)
-    jawab = get_answer(data["input_text"]) 
     
+    jawab = get_answer(data["input_text"]) 
+    print("----------------------------------------",jawab)
     
     return jsonify({
         "filename": jawab.get("path"),

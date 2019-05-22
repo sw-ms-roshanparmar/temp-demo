@@ -26,6 +26,10 @@ from math import sqrt
 
 # In[ ]:
 
+cwd = os.getcwd()
+file = open('path.txt',"a")
+file.write(cwd)
+file.close()
 
 def convert_pdf(path, format='text', codec='utf-8', password=''):
     rsrcmgr = PDFResourceManager()

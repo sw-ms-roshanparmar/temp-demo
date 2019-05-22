@@ -109,7 +109,6 @@ import PyPDF2
 frames = []
 for foldername,subfolders,files in os.walk(r"./bookmark/"):
     cnt = 1
-	print('roshan')
     for file in files:
 		path = os.path.join(foldername,file)
 		print(path)

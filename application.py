@@ -27,7 +27,7 @@ from math import sqrt
 # In[ ]:
 
 cwd = os.getcwd()
-file = open('path.txt',"a")
+file = open("path.txt","a")
 file.write(cwd)
 file.close()
 
@@ -156,11 +156,8 @@ import PyPDF2
 i1ts = [] 
 for foldername,subfolders,files in os.walk(r"./bookmark/"):
     cnt = 1
-    for file in files:
-		file1 = open('path.txt',"a")		
-        path = os.path.join(foldername,file)
-		file1.write(path)
-		file1.close()
+    for file in files:		 	
+        path = os.path.join(foldername,file)	 
         r = convert_pdf(path, "xml")
         fName = path.split('/')[-1]
         final_fName = fName.split('.')[0]

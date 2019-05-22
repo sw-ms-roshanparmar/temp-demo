@@ -109,42 +109,43 @@ import PyPDF2
 frames = []
 for foldername,subfolders,files in os.walk(r"./bookmark/"):
     print(foldername,subfolders,files)
-#     cnt = 1
-#     for file in files:
-# 		path = os.path.join(foldername,file)
-# 		print(path)
-#         # open the pdf file
-#         object = PyPDF2.PdfFileReader(os.path.join(foldername,file))
-#         path = os.path.join(foldername,file)
-#         #print(path)
-#         fName = path.split('/')[-1]
-#         final_fName = fName.split('.')[0]
-#         df = pd.DataFrame(get_outphs(path))
+    cnt = 1
+    for file in files:
+        path = os.path.join(foldername,file)
+        print(path)
+        # open the pdf file
+        object = PyPDF2.PdfFileReader(os.path.join(foldername,file))
+        path = os.path.join(foldername,file)
+        #print(path)
+        fName = path.split('/')[-1]
+        final_fName = fName.split('.')[0]
+        df = pd.DataFrame(get_outphs(path))
                 
-#         #next section
-#         f = open(path,'rb')
-#         p = PdfFileReader(f)
-#         # map page ids to page numbers
-#         pg_id_num_map = _setup_page_id_to_num(p)
-#         o = p.getOutlines()
+        #next section
+        f = open(path,'rb')
+        p = PdfFileReader(f)
+        # map page ids to page numbers
+        pg_id_num_map = _setup_page_id_to_num(p)
+        o = p.getOutlines()
+        print(o)
         
-#         #
-#         page = []
+        #
+        page = []
         
-#         for i in o:
-#             pg_num = pg_id_num_map[i.page.idnum] + 1
-#             #print(i['/Title'])
-#             page.append(pg_num)
+        for i in o:
+            pg_num = pg_id_num_map[i.page.idnum] + 1
+            #print(i['/Title'])
+            page.append(pg_num)
     
-#         df['pageno'] = pd.Series(page)
+        df['pageno'] = pd.Series(page)
 
-#         df['file_name'] = final_fName
-#         frames.append(df)
+        df['file_name'] = final_fName
+        frames.append(df)
         
-# dtls = pd.concat(frames)
-# dtls.loc[:, "title"] = dtls.raw_title.str.replace("\n", " ").str.strip().str.lower()
-# outphs = dtls.raw_title.tolist()
-# dtls = dtls.reset_index(drop=True)
+dtls = pd.concat(frames)
+dtls.loc[:, "title"] = dtls.raw_title.str.replace("\n", " ").str.strip().str.lower()
+outphs = dtls.raw_title.tolist()
+dtls = dtls.reset_index(drop=True)
 
 
 # In[ ]:

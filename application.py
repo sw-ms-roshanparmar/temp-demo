@@ -114,28 +114,28 @@ def _setup_page_id_to_num(pdf, pages=None, _result=None, _num_pages=None):
 import PyPDF2
 frames = []
 for foldername,subfolders,files in os.walk(r"./bookmark/"):
-    cnt = 1
-	print('roshan')
-    for file in files:
+	cnt = 1
+	print("============")
+	for file in files:
 		path = os.path.join(foldername,file)
 		print(path)
         # open the pdf file
-        object = PyPDF2.PdfFileReader(os.path.join(foldername,file))
-        path = os.path.join(foldername,file)
+		object = PyPDF2.PdfFileReader(os.path.join(foldername,file))
+		path = os.path.join(foldername,file)
         #print(path)
-        fName = path.split('/')[-1]
-        final_fName = fName.split('.')[0]
-        df = pd.DataFrame(get_outphs(path))
+		fName = path.split('/')[-1]
+		final_fName = fName.split('.')[0]
+		df = pd.DataFrame(get_outphs(path))
                 
         #next section
-        f = open(path,'rb')
-        p = PdfFileReader(f)
+		f = open(path,'rb')
+		p = PdfFileReader(f)
         # map page ids to page numbers
-        pg_id_num_map = _setup_page_id_to_num(p)
-        o = p.getOutlines()
+		pg_id_num_map = _setup_page_id_to_num(p)
+		o = p.getOutlines()
         
         #
-        page = []
+		page = []
         
         for i in o:
             pg_num = pg_id_num_map[i.page.idnum] + 1
